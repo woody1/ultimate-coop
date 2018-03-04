@@ -73,4 +73,7 @@ while True:
     else:
         print("BRGHT LIGHT!!!")
 
+    st1 = threading.Thread(target=stepper_worker, args=(myStepper1, randomsteps, dir, stepstyles[random.randint(0,3)],))
+    st1.start()
+
     time.sleep(0.1)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
