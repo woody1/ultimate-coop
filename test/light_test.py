@@ -27,14 +27,12 @@ def readldr():
         ldrcount += 1 # add 1 to the count
     return ldrcount
 
-while True:
-    print(readldr())
-    time.sleep(1) #just chill for a sec
-    if readldr() > 299:
-        print("Night Time - Good Night Chickens ")
-        rgb.set_color(RED)
-    elif readldr() < 300 or readldr() != 0:
-        print("Day Time - Go and play - Door opening")
-        rgb.set_color(GREEN)
-    else:
-        print("BRGHT LIGHT!!!")
+
+if readldr() > 299:
+    print("Night Time - Good Night Chickens ")
+    rgb.set_color(RED)
+elif readldr() < 300 or readldr() != 0:
+    print("Day Time - Go and play - Door opening")
+    rgb.set_color(GREEN)
+else:
+    print("BRGHT LIGHT!!!")
