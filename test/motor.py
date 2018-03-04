@@ -61,7 +61,7 @@ while (True):
             dir = Adafruit_MotorHAT.FORWARD
             print("forward")
             rgb = Squid(18, 23, 24)
-r           gb.set_color(RED),
+r           rgb.set_color(RED)
         else:
             dir = Adafruit_MotorHAT.BACKWARD
             print("backward"),
