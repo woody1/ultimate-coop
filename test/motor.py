@@ -66,6 +66,7 @@ while (True):
         else:
             dir = Adafruit_MotorHAT.BACKWARD
             print("backward")
+            rgb.set_color(GREEN)
 
         randomsteps = random.randint(10,50)
         print("%d steps" % randomsteps)
