@@ -51,7 +51,7 @@ while True:
         print("Night Time - Good Night Chickens ")
         print("Closing")
         rgb.set_color(RED)
-        myStepper.step(2000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
+        myStepper.step(1000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
     elif readldr() < 300 or readldr() != 0:
         print("Day Time - Go and play - Door opening")
         rgb.set_color(GREEN)
