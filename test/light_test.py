@@ -2,15 +2,14 @@
 
 # get the libs
 import time
+from squid import *
 import RPi.GPIO as GPIO
 
 # Get the pins sorted
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-# Set up the light
-GPIO.setup(18, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
+rgb = Squid(18, 23, 24)
 
 # A var with the LDR reader pin number
 pinldr = 14
@@ -33,11 +32,9 @@ while True:
     time.sleep(1) #just chill for a sec
     if readldr() > 299:
         print("Night Time - Good Night Chickens ")
-        GPIO.output(18, GPIO.LOW)
-        GPIO.output(24, GPIO.HIGH)
+        rgb.set_color(RED)
     elif readldr() < 300 or readldr() != 0:
         print("Day Time - Go and play - Door opening")
-        GPIO.output(18, GPIO.HIGH)
-        GPIO.output(24, GPIO.LOW)
+        rgb.set_color(GREEN)
     else:
         print("BRGHT LIGHT!!!")
