@@ -27,7 +27,7 @@ def turnOffMotors():
 
 atexit.register(turnOffMotors)
 
-myStepper = mh.getStepper(200, 1)  # 200 steps/rev, motor port #1
+myStepper = mh.getStepper(500, 1)  # 200 steps/rev, motor port #1
 myStepper.setSpeed(30)             # 30 RPM
 
 
@@ -49,9 +49,9 @@ while True:
     time.sleep(1) #just chill for a sec
     if readldr() > 299:
         print("Night Time - Good Night Chickens ")
-        myStepper.step(100, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
         print("Closing")
         rgb.set_color(RED)
+        myStepper.step(100, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
     elif readldr() < 300 or readldr() != 0:
         print("Day Time - Go and play - Door opening")
         rgb.set_color(GREEN)
