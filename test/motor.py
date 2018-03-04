@@ -67,7 +67,6 @@ while (True):
             print("backward")
             rgb = Squid(18, 23, 24)
             rgb.set_color(GREEN)
-
         randomsteps = random.randint(10,50)
         print("%d steps" % randomsteps)
 
