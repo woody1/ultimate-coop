@@ -64,7 +64,9 @@ while (True):
             rgb.set_color(RED)
         else:
             dir = Adafruit_MotorHAT.BACKWARD
-            print("backward"),
+            print("backward")
+            rgb = Squid(18, 23, 24)
+            rgb.set_color(GREEN)
 
         randomsteps = random.randint(10,50)
         print("%d steps" % randomsteps)
