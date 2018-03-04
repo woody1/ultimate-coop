@@ -1,4 +1,4 @@
-from squid import *
+from squid import squid
 import time
 
 rgb = Squid(18, 23, 24)

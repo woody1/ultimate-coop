@@ -5,6 +5,9 @@ import atexit
 import threading
 import random
 
+from squid import squid
+
+
 # create a default object, no changes to I2C address or frequency
 mh = Adafruit_MotorHAT()
 
@@ -42,6 +45,7 @@ while (True):
         if (randomdir == 0):
             dir = Adafruit_MotorHAT.FORWARD
             print("forward"),
+
         else:
             dir = Adafruit_MotorHAT.BACKWARD
             print("backward"),
