@@ -53,6 +53,7 @@ def close_door():
         rgb.set_color(RED)
         myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
         print("Closed")
+
         break
 
 
