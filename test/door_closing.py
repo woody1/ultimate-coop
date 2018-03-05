@@ -52,21 +52,13 @@ def close_door():
     myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
     print("Closed")
 
-def job():
-    print("I'm working...")
 
-schedule.every(1).minutes.do(job)
+schedule.every(1).minutes.do(close_door)
 
 while True:
     time.sleep(1)
     schedule.run_pending()
     print(readldr())
-    if readldr() < 499:
-            print("Too Light waiting for it to get dark")
-            rgb.set_color(GREEN)
-    else:
-        close_door()
-        break
-    time.sleep(1) #just chill for a sec
+
 
 
