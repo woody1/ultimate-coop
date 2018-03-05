@@ -46,7 +46,7 @@ def readldr():
 
 
 def close_door():
-    while readldr() > 499:
+    while readldr() < 499:
         print("Too Light waiting for it to get dark")
         rgb.set_color(GREEN)
         time.sleep(1)
@@ -60,8 +60,8 @@ def close_door():
         rgb.set_color(OFF)
 
 
-def close_open():
-    while readldr() < 499:
+def open_door():
+    while readldr() > 499:
         print("Too dark waiting for it to get light")
         rgb.set_color(BLUE)
         time.sleep(1)
@@ -75,8 +75,8 @@ def close_open():
         rgb.set_color(OFF)
 
 
-schedule.every().day.at("21:53").do(close_open)
-schedule.every().day.at("21:54").do(close_door)
+schedule.every().day.at("22:02").do(close_door)
+schedule.every().day.at("22:03").do(open_door)
 
 while True:
     time.sleep(1)
