@@ -5,6 +5,7 @@ import threading
 import time
 from squid import *
 import RPi.GPIO as GPIO
+import schedule
 
 # Get the pins sorted
 GPIO.setmode(GPIO.BCM)
@@ -51,9 +52,14 @@ def close_door():
     myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
     print("Closed")
 
+def job():
+    print("I'm working...")
+
+schedule.every(1).minutes.do(job)
 
 while True:
     time.sleep(1)
+    schedule.run_pending()
     print(readldr())
     if readldr() < 499:
             print("Too Light waiting for it to get dark")
