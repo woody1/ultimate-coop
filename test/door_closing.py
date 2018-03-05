@@ -35,10 +35,10 @@ def readldr():
     ldrcount = 0 # set the count to zero
     GPIO.setup(pinldr, GPIO.OUT)
     GPIO.output(pinldr, GPIO.LOW)
-    time.sleep(0.2) # drains the cap
+    time.sleep(0.1) # drains the cap
 
     GPIO.setup(pinldr, GPIO.IN) # sets the pin to input
-    # while the input pin reas low or off or fa
+    # while the input pin reads low or off or fa
     while (GPIO.input(pinldr) == GPIO.LOW):
         ldrcount += 1 # add 1 to the count
     return ldrcount
@@ -52,9 +52,9 @@ def close_door():
     print("Closed")
 
 
-
 while True:
     print(readldr())
+    readldr() == 0
     time.sleep(1)
     if readldr() > 399:
             print("Too Light waiting for it to get dark")
