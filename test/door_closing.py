@@ -44,6 +44,7 @@ def readldr():
     return ldrcount
 
 def close_door():
+    time.sleep(1)
     if readldr() > 499:
         print("Night Time - Good Night Chickens ")
         print("Closing")
