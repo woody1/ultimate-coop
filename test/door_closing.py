@@ -43,10 +43,7 @@ def readldr():
         ldrcount += 1 # add 1 to the count
     return ldrcount
 
-
-while True:
-    print(readldr())
-    time.sleep(1) #just chill for a sec
+def close_door():
     if readldr() > 499:
         print("Night Time - Good Night Chickens ")
         print("Closing")
@@ -59,3 +56,8 @@ while True:
         rgb.set_color(GREEN)
     else:
         print("BRGHT LIGHT!!!")
+
+while True:
+    print(readldr())
+    close_door()
+    time.sleep(1) #just chill for a sec
