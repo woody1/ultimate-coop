@@ -44,7 +44,7 @@ def readldr():
     return ldrcount
 
 def close_door():
-    while readldr()> 499:
+    while readldr() > 499:
         print("Too Light waiting for it to get dark")
         rgb.set_color(GREEN)
     else:
@@ -53,6 +53,7 @@ def close_door():
         rgb.set_color(RED)
         myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
         print("Closed")
+        break
 
 
 while True:
