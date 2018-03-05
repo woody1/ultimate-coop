@@ -55,7 +55,7 @@ def close_door():
 
 while True:
     print(readldr())
-    if readldr() > 399:
+    if readldr() < 399:
             print("Too Light waiting for it to get dark")
             rgb.set_color(GREEN)
     else:
