@@ -54,7 +54,7 @@ while True:
         myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
         break
     elif readldr() < 500 or readldr() != 0:
-        print("Day Time - Go and play - Door opening")
+        print("Too Light waiting for it to get dark")
         rgb.set_color(GREEN)
     else:
         print("BRGHT LIGHT!!!")
