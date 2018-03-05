@@ -60,3 +60,4 @@ while True:
     print(readldr())
     close_door()
     time.sleep(1) #just chill for a sec
+    break
