@@ -71,8 +71,8 @@ def close_open():
         myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
         print("Open")
 
-schedule.every().day.at("21:30").do(close_door)
-schedule.every().day.at("21:32").do(close_open)
+schedule.every().day.at("21:35").do(close_door)
+schedule.every().day.at("21:37").do(close_open)
 
 while True:
     time.sleep(1)
