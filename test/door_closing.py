@@ -58,7 +58,6 @@ schedule.every(1).minutes.do(close_door)
 while True:
     time.sleep(1)
     schedule.run_pending()
-    print(readldr())
 
 
 
