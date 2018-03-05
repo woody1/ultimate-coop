@@ -49,6 +49,7 @@ def close_door():
     while readldr() < 499:
         print("Too Light waiting for it to get dark")
         rgb.set_color(GREEN)
+        time.sleep(1)
     else:
         time.sleep(1) #just chill for a sec
         print("Night Time - Good Night Chickens ")
@@ -62,7 +63,6 @@ schedule.every(1).minutes.do(close_door)
 while True:
     time.sleep(1)
     schedule.run_pending()
-    print(readldr())
 
 
 
