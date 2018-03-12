@@ -12,7 +12,7 @@ rawCapture = PiRGBArray(camera)
 time.sleep(0.1)
 
 # grab an image from the camera
-camera.rotration = 180
+camera.rotation = 180
 camera.capture(rawCapture, format="bgr")
 image = rawCapture.array
 
