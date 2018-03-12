@@ -15,4 +15,4 @@ print("channels: {}".format(image.shape[2]))
 cv2.imshow("Image", image)
 cv2.waitKey(0)
 
-cv2.imwrite("chicken1.jpg", image)
+cv2.imwrite("chicken2.jpg", image)
