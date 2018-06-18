@@ -75,7 +75,7 @@ def open_door():
         rgb.set_color(OFF)
 
 
-schedule.every().day.at("20:55").do(close_door) # open door
+schedule.every().day.at("20:57").do(close_door) # open door
 schedule.every().day.at("07:00").do(open_door) # close door
 
 while True:
