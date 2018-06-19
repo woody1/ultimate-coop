@@ -34,6 +34,7 @@ def stepper_worker(stepper, numsteps, direction, style):
     print("Steppin!")
     stepper.step(numsteps, direction, style)
     print("Done")
+    exit()
 
 
 while True:
