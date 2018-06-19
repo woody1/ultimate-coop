@@ -29,16 +29,13 @@ atexit.register(turnOffMotors)
 myStepper = mh.getStepper(200, 1)  # 200 steps/rev, motor port #1
 myStepper.setSpeed(30)             # 30 RPM
 
-
-stepstyles = [Adafruit_MotorHAT.SINGLE, Adafruit_MotorHAT.DOUBLE, Adafruit_MotorHAT.INTERLEAVE, Adafruit_MotorHAT.MICROSTEP]
-
 def stepper_worker(stepper, numsteps, direction, style):
     #print("Steppin!")
     stepper.step(numsteps, direction, style)
     #print("Done")
 
 
-while (True):
+while True:
 
     rgb.set_color(GREEN)
     st1 = threading.Thread(target=stepper_worker, args=(myStepper, 3000, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.DOUBLE))
