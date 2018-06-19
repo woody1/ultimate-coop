@@ -44,4 +44,4 @@ while True:
 
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
 
-schedule.every().day.at("17:41").do(close_door) # open door
+schedule.every().day.at("17:43").do(st1.start()) # open door
