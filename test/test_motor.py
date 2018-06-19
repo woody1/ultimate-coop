@@ -3,7 +3,6 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor, Adafruit_Step
 import time
 import atexit
 import threading
-import random
 
 from squid import *
 # Sqet the squid
@@ -27,7 +26,7 @@ def turnOffMotors():
 
 atexit.register(turnOffMotors)
 
-myStepper = mh.getStepper(300, 1)  # 200 steps/rev, motor port #1
+myStepper = mh.getStepper(200, 1)  # 200 steps/rev, motor port #1
 myStepper.setSpeed(500)             # 30 RPM
 
 
@@ -42,9 +41,12 @@ def stepper_worker(stepper, numsteps, direction, style):
 while (True):
 
     rgb.set_color(GREEN)
-    myStepper.step(2000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.DOUBLE)
+    st1 = threading.Thread(target=stepper_worker, args=(myStepper, 3000, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.DOUBLE))
+    st1.start()
+
 
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
 
     rgb.set_color(RED)
     myStepper.step(2000, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.DOUBLE)
+
