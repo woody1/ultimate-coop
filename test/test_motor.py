@@ -36,10 +36,9 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 def door_open():
 
-    # create empty threads (these will hold the stepper 1 and 2 threads)
+    # create empty threads (these will hold the stepper threads)
     st1 = threading.Thread()
 
-    if not st1.isAlive():
         rgb.set_color(GREEN)
         st1 = threading.Thread(target=stepper_worker, args=(myStepper, 2000, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
         st1.start()
