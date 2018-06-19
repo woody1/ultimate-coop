@@ -35,8 +35,7 @@ def stepper_worker(stepper, numsteps, direction, style):
     print("Done")
 
 
-while True:
-
+def door_open():
     if not st1.isAlive():
         rgb.set_color(GREEN)
         st1 = threading.Thread(target=stepper_worker, args=(myStepper, 2000, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
@@ -44,4 +43,6 @@ while True:
 
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
 
-schedule.every().day.at("17:43").do(st1.start()) # open door
+
+while True:
+    door_open()
