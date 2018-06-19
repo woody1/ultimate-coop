@@ -34,15 +34,16 @@ def stepper_worker(stepper, numsteps, direction, style):
     print("Steppin!")
     stepper.step(numsteps, direction, style)
     print("Done")
-    exit()
 
+
+st1.start()
 
 while True:
 
     if not st1.isAlive():
         rgb.set_color(GREEN)
         st1 = threading.Thread(target=stepper_worker, args=(myStepper, 500, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
-        st1.start()
+
 
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
 
