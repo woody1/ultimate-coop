@@ -14,7 +14,6 @@ mh = Adafruit_MotorHAT()
 
 # create empty threads (these will hold the stepper 1 and 2 threads)
 st1 = threading.Thread()
-st2 = threading.Thread()
 
 
 # recommended for auto-disabling motors on shutdown!
@@ -27,7 +26,7 @@ def turnOffMotors():
 atexit.register(turnOffMotors)
 
 myStepper = mh.getStepper(200, 1)  # 200 steps/rev, motor port #1
-myStepper.setSpeed(30)             # 30 RPM
+myStepper.setSpeed(500)             # 30 RPM
 
 def stepper_worker(stepper, numsteps, direction, style):
     #print("Steppin!")
@@ -38,8 +37,10 @@ def stepper_worker(stepper, numsteps, direction, style):
 while True:
 
     rgb.set_color(GREEN)
-    st1 = threading.Thread(target=stepper_worker, args=(myStepper, 3000, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.DOUBLE))
-    st1.start()
+    myStepper.step(2000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.DOUBLE)
 
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
+
+    rgb.set_color(RED)
+    myStepper.step(2000, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.DOUBLE)
 
