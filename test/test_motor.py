@@ -28,7 +28,7 @@ def turnOffMotors():
 atexit.register(turnOffMotors)
 
 myStepper = mh.getStepper(300, 1)  # 200 steps/rev, motor port #1
-myStepper.setSpeed(1000)             # 30 RPM
+myStepper.setSpeed(5000)             # 30 RPM
 
 
 stepstyles = [Adafruit_MotorHAT.SINGLE, Adafruit_MotorHAT.DOUBLE, Adafruit_MotorHAT.INTERLEAVE, Adafruit_MotorHAT.MICROSTEP]
