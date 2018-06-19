@@ -42,13 +42,9 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 
 while (True):
-    time.sleep(1) #just chill for a sec
-    print("Night Time - Good Night Chickens ")
-    print("Closing")
+
     rgb.set_color(RED)
-    myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
-    print("Closed")
-    rgb.set_color(OFF)
+
 
 
 
