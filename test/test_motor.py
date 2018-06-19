@@ -42,6 +42,9 @@ def stepper_worker(stepper, numsteps, direction, style):
 while (True):
 
     rgb.set_color(GREEN)
-    myStepper.step(30000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.DOUBLE)
+    myStepper.step(2000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.DOUBLE)
 
     time.sleep(0.1)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
+
+    rgb.set_color(RED)
+    myStepper.step(2000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.DOUBLE)
