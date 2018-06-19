@@ -43,10 +43,5 @@ while True:
         st1 = threading.Thread(target=stepper_worker, args=(myStepper, 500, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
         st1.start()
 
-    run_once = 0
-    while run_once < 1:
-        print("Hello")
-        run_once = 1
-
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
 
