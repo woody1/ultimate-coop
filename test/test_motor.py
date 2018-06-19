@@ -3,8 +3,10 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor, Adafruit_Step
 import time
 import atexit
 import threading
-import squid
 import schedule
+
+from squid import *
+# Sqet the squid
 
 rgb = Squid(18, 23, 24)
 
