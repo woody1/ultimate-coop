@@ -42,20 +42,13 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 
 while (True):
-    if not st1.isAlive():
-        randomdir = random.randint(0, 1)
-        print("Stepper 1"),
-        if (randomdir == 0):
-            dir = Adafruit_MotorHAT.FORWARD
-            print("forward"),
-
-        else:
-            dir = Adafruit_MotorHAT.BACKWARD
-            print("backward"),
-        randomsteps = random.randint(10,50)
-        print("%d steps" % randomsteps)
-        st1 = threading.Thread(target=stepper_worker, args=(myStepper1, randomsteps, dir, stepstyles[random.randint(0,3)],))
-        st1.start()
+    time.sleep(1) #just chill for a sec
+    print("Night Time - Good Night Chickens ")
+    print("Closing")
+    rgb.set_color(RED)
+    myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
+    print("Closed")
+    rgb.set_color(OFF)
 
 
 
