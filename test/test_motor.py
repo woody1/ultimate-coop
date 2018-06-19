@@ -3,6 +3,7 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor, Adafruit_Step
 import time
 import atexit
 import threading
+import schedule
 
 from squid import *
 # Sqet the squid
@@ -41,8 +42,6 @@ while True:
         st1 = threading.Thread(target=stepper_worker, args=(myStepper, 2000, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
         st1.start()
 
-    #myStepper.step(3000, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.DOUBLE)
-
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
 
-    break
+schedule.every().day.at("17:41").do(close_door) # open door
