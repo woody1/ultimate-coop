@@ -13,7 +13,8 @@ rgb = Squid(18, 23, 24)
 # create a default object, no changes to I2C address or frequency
 mh = Adafruit_MotorHAT()
 
-
+# create empty threads (these will hold the stepper 1 and 2 threads)
+st1 = threading.Thread()
 
 
 # recommended for auto-disabling motors on shutdown!
@@ -35,14 +36,16 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 
 def door_open():
-    # create empty threads (these will hold the stepper 1 and 2 threads)
-    st1 = threading.Thread()
 
-    if not st1.isAlive():
-        rgb.set_color(GREEN)
-        st1 = threading.Thread(target=stepper_worker, args=(myStepper, 2000, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
-        st1.start()
+    rgb.set_color(GREEN)
+    st1 = threading.Thread(target=stepper_worker, args=(myStepper, 2000, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
+    st1.start()
+
 
 while True:
-    door_open()
+
+    if not st1.isAlive():
+        door_open()
+
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
+
