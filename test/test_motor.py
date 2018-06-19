@@ -29,15 +29,15 @@ myStepper = mh.getStepper(200, 1)  # 200 steps/rev, motor port #1
 myStepper.setSpeed(500)             # 30 RPM
 
 def stepper_worker(stepper, numsteps, direction, style):
-    #print("Steppin!")
+    print("Steppin!")
     stepper.step(numsteps, direction, style)
-    #print("Done")
+    print("Done")
 
 
 while True:
 
     rgb.set_color(GREEN)
-    st1 = threading.Thread(target=stepper_worker, args=(myStepper, 200, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
+    st1 = threading.Thread(target=stepper_worker, args=(myStepper, 2000, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
     st1.start()
 
     #myStepper.step(3000, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.DOUBLE)
