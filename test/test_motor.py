@@ -6,7 +6,7 @@ import threading
 import squid
 import schedule
 
-rgb = squid(18, 23, 24)
+rgb = Squid(18, 23, 24)
 
 # create a default object, no changes to I2C address or frequency
 mh = Adafruit_MotorHAT()
