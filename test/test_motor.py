@@ -60,6 +60,7 @@ schedule.every().day.at("15:42").do(open_door) # open door
 
 while True:
 
+    open_door()
     schedule.run_pending()
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
 
