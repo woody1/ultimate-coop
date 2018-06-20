@@ -36,15 +36,15 @@ def stepper_worker(stepper, numsteps, direction, style):
     print("Done")
 
 
-def job():
+def close_door():
     rgb.set_color(RED)
     myStepper.step(3000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
     print("Closed")
     rgb.set_color(GREEN)
-    time.sleep(1)
+    time.sleep(10)
     rgb.set_color(OFF)
 
-schedule.every(5).minutes.do(job)
+schedule.every().day.at("15:46").do(close_door) # open door
 
 
 while True:
