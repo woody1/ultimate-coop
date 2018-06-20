@@ -44,15 +44,22 @@ def close_door():
     time.sleep(10)
     rgb.set_color(OFF)
 
-schedule.every().day.at("15:05").do(close_door) # open door
+def open_door():
+        rgb.set_color(RED)
+    myStepper.step(3000, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.SINGLE)
+    print("Open")
+    rgb.set_color(GREEN)
+    time.sleep(10)
+    rgb.set_color(OFF)
+
+schedule.every().day.at("15:10").do(close_door) # close door
+
+schedule.every().day.at("15:12").do(open_door) # open door
 
 
 while True:
 
     schedule.run_pending()
-
-
-
     time.sleep(0.2)  # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
 
 
