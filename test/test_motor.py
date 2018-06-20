@@ -53,8 +53,8 @@ def open_door():
     time.sleep(10)
     rgb.set_color(OFF)
 
-schedule.every().day.at("15:15").do(close_door) # close door
 
+schedule.every().day.at("15:15").do(close_door) # close door
 schedule.every().day.at("15:17").do(open_door) # open door
 
 
