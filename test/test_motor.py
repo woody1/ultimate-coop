@@ -44,7 +44,7 @@ def close_door():
     time.sleep(10)
     rgb.set_color(OFF)
 
-schedule.every().day.at("15:46").do(close_door) # open door
+schedule.every().day.at("15:05").do(close_door) # open door
 
 
 while True:
