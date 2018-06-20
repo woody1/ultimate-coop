@@ -37,9 +37,12 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 
 def job():
-
+    rgb.set_color(RED)
     myStepper.step(3000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
     print("Closed")
+    rgb.set_color(GREEN)
+    time.sleep(1)
+    rgb.set_color(OFF)
 
 schedule.every(5).minutes.do(job)
 
