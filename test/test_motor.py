@@ -26,8 +26,8 @@ def turnOffMotors():
 
 atexit.register(turnOffMotors)
 
-myStepper = mh.getStepper(3000, 1)  # 200 steps/rev, motor port #1
-myStepper.setSpeed(255)             # 30 RPM
+myStepper = mh.getStepper(300, 1)  # 200 steps/rev, motor port #1
+myStepper.setSpeed(10)             # 30 RPM
 
 
 def stepper_worker(stepper, numsteps, direction, style):
