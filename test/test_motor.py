@@ -44,8 +44,9 @@ def close_door():
     time.sleep(10)
     rgb.set_color(OFF)
 
+
 def open_door():
-        rgb.set_color(RED)
+    rgb.set_color(RED)
     myStepper.step(3000, Adafruit_MotorHAT.BACKWARD,  Adafruit_MotorHAT.SINGLE)
     print("Open")
     rgb.set_color(GREEN)
