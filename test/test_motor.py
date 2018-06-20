@@ -37,10 +37,9 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 
 def job():
-    if not st1.isAlive():
-        rgb.set_color(GREEN)
-        st1 = threading.Thread(target=stepper_worker, args=(myStepper, 500, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE))
-        st1.start()
+
+    myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
+    print("Closed")
 
 schedule.every(5).minutes.do(job)
 
