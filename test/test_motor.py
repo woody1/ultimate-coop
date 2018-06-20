@@ -38,7 +38,7 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 def job():
 
-    myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
+    myStepper.step(3000, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
     print("Closed")
 
 schedule.every(5).minutes.do(job)
