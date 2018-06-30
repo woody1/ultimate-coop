@@ -60,6 +60,7 @@ def close_door():
         rgb.set_color(OFF)
 
 
+
 def open_door():
     while readldr() > 499:
         print("Too dark waiting for it to get light")
