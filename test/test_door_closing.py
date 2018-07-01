@@ -47,8 +47,8 @@ def readldr():
     time.sleep(0.1) # drains the cap
 
     GPIO.setup(pinldr, GPIO.IN) # sets the pin to input
-    # while the input pin reads low or off or fa
-    while (GPIO.input(pinldr) == GPIO.LOW):
+# while the input pin reads low or off or fa
+    while GPIO.input(pinldr) == GPIO.LOW:
         ldrcount += 1 # add 1 to the count
     return ldrcount
 
