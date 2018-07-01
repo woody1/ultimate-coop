@@ -17,6 +17,9 @@ rgb = Squid(18, 23, 24)
 pinldr = 14
 
 # create a default object, no changes to I2C address or frequency
+mh = Adafruit_MotorHAT(addr=0x6f)
+
+# create a default object, no changes to I2C address or frequency
 mh = Adafruit_MotorHAT()
 
 
