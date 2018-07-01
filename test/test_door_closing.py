@@ -60,7 +60,7 @@ def close_door():
         print("Closing")
         rgb.set_color(RED)
         myMotor.run(Adafruit_MotorHAT.FORWARD)
-        time.sleep(0.01)
+        time.sleep(0.1)
         myMotor.run(Adafruit_MotorHAT.RELEASE)
         print("Closed")
         rgb.set_color(OFF)
