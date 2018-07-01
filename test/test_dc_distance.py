@@ -33,17 +33,9 @@ while True:
     time.sleep(1)  # just chill for a sec
     print("Night Time - Good Night Chickens ")
     print("Closing")
-    rgb.set_color(RED)
     myMotor.run(Adafruit_MotorHAT.FORWARD)
     time.sleep(5.0)
     myMotor.run(Adafruit_MotorHAT.RELEASE)
     print("Closed")
-    rgb.set_color(OFF)
-    print("Backward! ")
-    myMotor.run(Adafruit_MotorHAT.BACKWARD)
 
-
-
-    print("Release")
-    myMotor.run(Adafruit_MotorHAT.RELEASE)
     time.sleep(5.0)
