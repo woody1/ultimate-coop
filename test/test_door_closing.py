@@ -19,17 +19,25 @@ pinldr = 14
 # create a default object, no changes to I2C address or frequency
 mh = Adafruit_MotorHAT()
 
+
 # recommended for auto-disabling motors on shutdown!
-def turnOffMotors():
+def turnoffmotors():
     mh.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
     mh.getMotor(2).run(Adafruit_MotorHAT.RELEASE)
     mh.getMotor(3).run(Adafruit_MotorHAT.RELEASE)
     mh.getMotor(4).run(Adafruit_MotorHAT.RELEASE)
 
-atexit.register(turnOffMotors)
 
-myStepper = mh.getStepper(300, 1)  # 200 steps/rev, motor port #1
-myStepper.setSpeed(30)             # 30 RPM
+atexit.register(turnoffmotors)
+
+# DC motor test!
+myMotor = mh.getMotor(3)
+
+# set the speed to start, from 0 (off) to 255 (max speed)
+myMotor.setSpeed(150)
+myMotor.run(Adafruit_MotorHAT.FORWARD)
+# turn on motor
+myMotor.run(Adafruit_MotorHAT.RELEASE)
 
 
 def readldr():
@@ -47,18 +55,20 @@ def readldr():
 
 def close_door():
 
-        time.sleep(1) #just chill for a sec
+        time.sleep(1)  # just chill for a sec
         print("Night Time - Good Night Chickens ")
         print("Closing")
         rgb.set_color(RED)
-        myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
+        myMotor.run(Adafruit_MotorHAT.FORWARD)
+        time.sleep(0.01)
+        myMotor.run(Adafruit_MotorHAT.RELEASE)
         print("Closed")
         rgb.set_color(OFF)
 
 
 def open_door():
 
-        time.sleep(1) #just chill for a sec
+        time.sleep(1)  # just chill for a sec
         print("Day Time")
         print("Opening")
         rgb.set_color(YELLOW)
@@ -67,8 +77,10 @@ def open_door():
         rgb.set_color(OFF)
 
 
-schedule.every().day.at("23:07").do(close_door) # open door
-schedule.every().day.at("07:00").do(open_door) # close door
+schedule.every(2).minutes.do(close_door)
+
+schedule.every().day.at("23:07").do(close_door)  # open door
+schedule.every().day.at("07:00").do(open_door)  # close door
 
 while True:
     time.sleep(1)
