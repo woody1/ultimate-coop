@@ -86,8 +86,8 @@ def open_door():
 # schedule.every(2).minutes.do(close_door)
 # schedule.every(2).minutes.do(open_door)
 
-schedule.every().day.at("22:04").do(close_door)  # open door
-schedule.every().day.at("22:05").do(open_door)  # close door
+schedule.every().day.at("22:09").do(close_door)  # open door
+schedule.every().day.at("22:10").do(open_door)  # close door
 
 while True:
     time.sleep(1)
