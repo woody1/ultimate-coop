@@ -29,13 +29,19 @@ myMotor.run(Adafruit_MotorHAT.RELEASE)
 
 while True:
 
-
     time.sleep(1)  # just chill for a sec
     print("Night Time - Good Night Chickens ")
     print("Closing")
-    myMotor.run(Adafruit_MotorHAT.FORWARD)
+    myMotor.run(Adafruit_MotorHAT.BACKWARD)
     time.sleep(5.0)
     myMotor.run(Adafruit_MotorHAT.RELEASE)
     print("Closed")
 
     time.sleep(5.0)
+
+    print("Morning Chickens ")
+    print("Opening")
+    myMotor.run(Adafruit_MotorHAT.FORWARD)
+    time.sleep(5.0)
+    myMotor.run(Adafruit_MotorHAT.RELEASE)
+    print("Open")
