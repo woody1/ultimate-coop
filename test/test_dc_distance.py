@@ -33,7 +33,7 @@ while True:
     print("Night Time - Good Night Chickens ")
     print("Closing")
     myMotor.run(Adafruit_MotorHAT.BACKWARD)
-    time.sleep(5.0)
+    time.sleep(4.0)
     myMotor.run(Adafruit_MotorHAT.RELEASE)
     print("Closed")
 
@@ -42,6 +42,6 @@ while True:
     print("Morning Chickens ")
     print("Opening")
     myMotor.run(Adafruit_MotorHAT.FORWARD)
-    time.sleep(5.0)
+    time.sleep(4.0)
     myMotor.run(Adafruit_MotorHAT.RELEASE)
     print("Open")
