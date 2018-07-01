@@ -72,15 +72,18 @@ def open_door():
         print("Day Time")
         print("Opening")
         rgb.set_color(YELLOW)
-        myStepper.step(200, Adafruit_MotorHAT.FORWARD,  Adafruit_MotorHAT.SINGLE)
+        myMotor.run(Adafruit_MotorHAT.BACKWARD)
+        time.sleep(5.0)
+        myMotor.run(Adafruit_MotorHAT.RELEASE)
         print("Open")
         rgb.set_color(OFF)
 
 
-schedule.every(2).minutes.do(close_door)
+# schedule.every(2).minutes.do(close_door)
+# schedule.every(2).minutes.do(open_door)
 
-schedule.every().day.at("23:07").do(close_door)  # open door
-schedule.every().day.at("07:00").do(open_door)  # close door
+schedule.every().day.at("21:05").do(close_door)  # open door
+schedule.every().day.at("21:06").do(open_door)  # close door
 
 while True:
     time.sleep(1)
